@@ -13,9 +13,54 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from __future__ import print_function
+
+import sys
+
+from profimp import reports
+from profimp import tracer
+
+
+HELP_MESSAGE = """
+    Profimp allows you to trace imports of your code.
+
+    This lib should be used to simplify optimization of imports in your code.
+    At least you will find what consumes the most part of time and do the
+    right decisions.
+
+    Syntax:
+        profimp [import_module_line]
+
+    Samples:
+        profimp "import re"
+
+        or
+
+        profimp "from somemoudle import something"
+"""
+
+
+def print_help():
+    print(HELP_MESSAGE)
+
+
+def trace_module(import_line):
+    root_pt = tracer.init_stack()
+    with tracer.patch_import():
+        exec(import_line)
+    return root_pt
+
 
 def main():
-    return "Hello world"
+    if len(sys.argv) == 1:
+        print_help()
+    elif len(sys.argv) == 2:
+        report = reports.to_json(trace_module(sys.argv[1]))
+        sys.stdout.write(report)
+    else:
+        print_help()
+        raise SystemExit("Wrong input arguments: %s" % sys.argv)
+
 
 if __name__ == "__main__":
     main()
