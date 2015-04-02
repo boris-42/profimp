@@ -29,14 +29,15 @@ HELP_MESSAGE = """
     right decisions.
 
     Syntax:
-        profimp [import_module_line]
+        profimp [import_module_line] [--html]
 
     Samples:
-        profimp "import re"
-
-        or
+        profimp "import collections"
 
         profimp "from somemoudle import something"
+
+        prpfimp --html "import multiprocessing"
+
 """
 
 
@@ -58,6 +59,14 @@ def main():
     elif len(sys.argv) == 2:
         report = reports.to_json(trace_module(sys.argv[1]))
         sys.stdout.write(report)
+    elif len(sys.argv) == 3:
+        if "--html" in sys.argv[1:]:
+            arg_pos = 1 if sys.argv[1] != "--html" else 2
+            report = reports.to_html(trace_module(sys.argv[arg_pos]))
+            sys.stdout.write(report)
+        else:
+            print_help()
+            raise SystemExit("Wrong input arguments: %s" % sys.argv)
     else:
         print_help()
         raise SystemExit("Wrong input arguments: %s" % sys.argv)
