@@ -14,7 +14,6 @@
 # under the License.
 
 import mock
-
 import testtools
 
 

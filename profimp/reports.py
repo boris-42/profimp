@@ -13,11 +13,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from tests.unit import test
+import json
 
 
-class NoopTestCase(test.TestCase):
-    """Test case base class for all unit tests."""
-
-    def test_noop(self):
-        self.assertEqual(4, 2 + 2)
+def to_json(results):
+    return json.dumps(results.to_dict(), indent=2)
