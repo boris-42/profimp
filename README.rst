@@ -18,7 +18,7 @@ Installation of profimp is super easy:
 .. code-block::
 
     git clone https://github.com/boris-42/profimp && cd profimp
-    pip install -r requirements.txt
+    sudo python setup.py install
 
 
 Usage
