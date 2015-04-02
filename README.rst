@@ -41,8 +41,23 @@ Samples:
     prpfimp --html "import multiprocessing"
 
 
-Results
--------
+Pretty HTML reports
+-------------------
+
+if you run prpfimp with --html key you will get pretty html output
+
+.. code-block::
+
+  profimp "import collections"
+
+
+.. image:: doc/source/images/collections_import_trace.png
+   :alt: American Gothic
+   :width: 650 px
+
+
+Raw JSON Results
+----------------
 
 In output you will see something like:
 
