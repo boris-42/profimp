@@ -55,6 +55,26 @@ class MainTestCase(test.TestCase):
     @mock.patch("profimp.main.print_help")
     @mock.patch("profimp.main.sys")
     def test_main_with_too_many_args(self, mock_sys, mock_print_help):
-        mock_sys.argv = ["profimp", "module_one", "something else"]
+        mock_sys.argv = ["profimp", "module_one", "something else", "and"]
         self.assertRaises(SystemExit, main.main)
         mock_print_help.assert_called_once_with()
+
+    @mock.patch("profimp.main.print_help")
+    @mock.patch("profimp.main.sys")
+    def test_main_html_wrong_key(self, mock_sys, mock_print_help):
+        mock_sys.argv = ["profimp", "module_one", "not a --html"]
+        self.assertRaises(SystemExit, main.main)
+        mock_print_help.assert_called_once_with()
+
+    @mock.patch("profimp.main.reports")
+    @mock.patch("profimp.main.trace_module")
+    @mock.patch("profimp.main.sys")
+    def test_main_html(self, mock_sys, mock_trace_module, mock_reports):
+        mock_sys.argv = ["profimp", "import re", "--html"]
+
+        mock_trace_module.return_value
+        main.main()
+
+        mock_trace_module.assert_called_once_with("import re")
+        mock_reports.to_html.assert_called_once_with(
+            mock_trace_module.return_value)

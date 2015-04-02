@@ -28,17 +28,17 @@ Syntax:
 
 .. code-block::
 
-    profimp [import_module_line]
+    profimp [import_module_line] [--html]
 
 Samples:
 
 .. code-block::
 
-    profimp "import re"
-
-    or
+    profimp "import collections"
 
     profimp "from somemoudle import something"
+
+    prpfimp --html "import multiprocessing"
 
 
 Results
