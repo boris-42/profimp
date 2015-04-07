@@ -17,6 +17,12 @@ Installation of profimp is super easy:
 
 .. code-block::
 
+   sudo pip install profimp
+
+or
+
+.. code-block::
+
     git clone https://github.com/boris-42/profimp && cd profimp
     sudo python setup.py install
 
@@ -51,7 +57,7 @@ if you run prpfimp with --html key you will get pretty html output
   profimp "import collections"
 
 
-.. image:: doc/source/images/collections_import_trace.png
+.. image:: samples/collections_import_trace.png
    :alt: American Gothic
    :width: 650 px
 
