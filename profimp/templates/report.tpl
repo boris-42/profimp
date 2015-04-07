@@ -17,7 +17,7 @@
         min-width: 900px;
       }
 
-      .trace tr.active-true {
+      .trace tr:hover {
         background-color: #D9EDF7!important;
       }
 
@@ -71,12 +71,8 @@
     <script type="text/ng-template"  id="tree_item_renderer.html">
         <div>
           <table class="trace cursor_pointer_on_hover">
-            <tr class="active-{{hover}}"
-                ng-init="hover=false"
-                ng-mouseenter="hover=true"
-                ng-mouseleave="hover=false">
-              <td class="level"
-                  style="padding-left:{{data.level * 5}}px;">
+            <tr>
+              <td class="level" style="padding-left:{{data.level * 5}}px;">
                 <button type="button"
                         class="btn btn-default btn-xs"
                         ng-disabled="data.is_leaf"
