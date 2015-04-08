@@ -13,11 +13,18 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import sys
+
 import mock
-from six.moves import builtins
 
 from profimp import tracer
 from tests.unit import test
+
+
+if sys.version_info[0] == 3:
+    import builtins
+else:
+    import __builtin__ as builtins
 
 
 class TracePointTestCase(test.TestCase):

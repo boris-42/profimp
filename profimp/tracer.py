@@ -13,10 +13,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+
 import contextlib
+import sys
 import time
 
-from six.moves import builtins
+if sys.version_info[0] == 3:
+    import builtins
+else:
+    import __builtin__ as builtins
 
 
 class TracePoint(object):
