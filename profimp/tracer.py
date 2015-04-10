@@ -26,11 +26,13 @@ else:
 
 class TracePoint(object):
 
-    def __init__(self, import_line, level=0):
+    def __init__(self, import_line, level=0, module=None, filepath=None):
         self.started_at = 0
         self.finished_at = 0
         self.import_line = import_line
         self.level = level
+        self.module = module
+        self.filepath = filepath
         self.children = []
 
     def __enter__(self):
@@ -48,6 +50,8 @@ class TracePoint(object):
             "duration": (self.finished_at - self.started_at) * 1000,
             "import_line": self.import_line,
             "level": self.level,
+            "module": self.module,
+            "filepath": self.filepath,
             "children": []
         }
 
@@ -88,12 +92,18 @@ def _traceit(f):
     def w(*args, **kwargs):
         import_line = ""
 
+        module = "N/A"
+        filepath = "N/A"
+        if len(args) > 1 and hasattr(args[1], "get"):
+            module = args[1].get("__name__")
+            filepath = args[1].get("__file__")
         if len(args) > 3 and args[3]:
             import_line = "from %s import %s" % (args[0], ", ".join(args[3]))
         else:
             import_line = "import %s" % args[0]
 
-        with TracePoint(import_line) as trace_pt:
+        with TracePoint(import_line, module=module,
+                        filepath=filepath) as trace_pt:
             TRACE_STACK[-1].add_child(trace_pt)
             TRACE_STACK.append(trace_pt)
             try:

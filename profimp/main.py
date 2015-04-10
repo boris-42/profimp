@@ -47,6 +47,7 @@ def print_help():
 
 def trace_module(import_line):
     root_pt = tracer.init_stack()
+    root_pt.import_line = "exec(%s)" % import_line
     with tracer.patch_import():
         with root_pt:
             exec(import_line)

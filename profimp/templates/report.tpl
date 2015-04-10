@@ -1,158 +1,147 @@
 <!doctype html>
 <html ng-app="Application">
-
   <head>
-    <script> var TraceData = {{DATA}} </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imports profiling results</title>
+  <style>
+    body { margin:0 0 50px; padding:0; font-size:14px; font-family:Helvetica,Arial,sans-serif }
+    table { border-collapse:collapse; border-spacing:0; width:100% }
+    thead th { text-align:left; padding:8px 4px; color:#000; border:2px solid #ddd; border-width:0 0 2px 0 }
+    tbody tr:hover { background:#d9edf7; cursor:pointer }
+    tbody td { text-align:left; solid #ddd; padding:3px 2px; color:#333; font-size:12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; white-space: nowrap; font-family:monospace }
+    .header { text-align:left; background:#333; font-size:18px; padding:13px 0; margin-bottom:20px; color:#fff; background-image:linear-gradient(to bottom, #444 0px, #222 100%) }
+    .header a, .header a:visited, .header a:focus { color:#999; text-decoration: none }
+    .leaf { width:17px; border:none; padding:0; background:none; border:none; text-align:center; }
+    tbody td span { color: gray; }
+    td.duration { width:40%; padding:2px 0; overflow: visible; color: gray; }
+    td.duration div { text-align:center; padding:3px 0; line-height:12px; background:#c6f3dd; border-radius:2px; overflow: visible; white-space: nowrap; }
+    .content-wrap {margin:0 auto; padding:0 5px}
+    @media only screen and (min-width: 320px)  { .content-wrap { width:900px  } .content-main { width:600px } }
+    @media only screen and (min-width: 900px)  { .content-wrap { width:880px  } .content-main { width:590px } }
+    @media only screen and (min-width: 1000px) { .content-wrap { width:980px  } .content-main { width:690px } }
+    @media only screen and (min-width: 1100px) { .content-wrap { width:1080px } .content-main { width:790px } }
+    @media only screen and (min-width: 1200px) { .content-wrap { width:1180px } .content-main { width:890px } }
+  </style>
 
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <script>var TraceData = {{DATA}}</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+  <script>
+    angular.module("Application", []);
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    function ProfilerCtlr($scope) {
+      var idx = 0;
+      $scope.max_duration = TraceData["duration"];
+      $scope.tree = {0: {parent: 0, is_expandable: true, is_expanded: true}};
+      $scope.imports = [];
+      var append_imp = function(imp, parent_idx, level){
+        idx++;
+        var this_idx = idx;
+        $scope.imports.push({level: level,
+                      index: idx,
+                      module: imp.module,
+                      file: imp.filepath,
+                      import_line: imp.import_line,
+                      duration: imp.duration,
+                      started_at: imp.started_at})
 
-    <style>
-      .trace {
-        min-width: 900px;
-      }
-
-      .trace tr:hover {
-        background-color: #D9EDF7!important;
-      }
-
-      .trace tr td {
-        white-space: nowrap;
-        padding: 2px;
-        border-right: 1px solid #eee;
-      }
-
-      .trace tr td.level{
-        width: 100px;
-      }
-
-      .import_line{
-        width: 450px;
-        max-width: 450px;
-        overflow: scroll;
-      }
-
-      .import_line span{
-        font-size: 10px;
-      }
-
-
-      .trace .level {
-        width: 10%;
-        font-weight: bold;
-      }
-
-      .bold {
-        font-weight: bold;
-      }
-
-      div.duration {
-        width: 25px;
-        margin: 0px;
-        padding: 0px;
-        background-color: #C6F3DD;
-        border-radius: 4px;
-        font-size: 10px;
-
-      }
-
-      div.duration div{
-        padding-top: 4px;
-        padding-bottom: 4px;
-        text-align: center;
-      }
-    </style>
-
-    <script type="text/ng-template"  id="tree_item_renderer.html">
-        <div>
-          <table class="trace cursor_pointer_on_hover">
-            <tr>
-              <td class="level" style="padding-left:{{data.level * 5}}px;">
-                <button type="button"
-                        class="btn btn-default btn-xs"
-                        ng-disabled="data.is_leaf"
-                        ng-click="data.hide_children=!data.hide_children">
-                  <span class="glyphicon glyphicon-{{ (data.is_leaf) ? 'minus' : ((data.hide_children) ? 'plus': 'minus')}}"></span>
-                  {{data.level || 0}}
-                </button>
-              </td>
-              <td class="{{ is_important(data) ? 'bold' : ''}} import_line" >
-                <span>{{data.input_line_prefix}} {{data.import_line}}</span>
-              </td>
-              <td ng-click="display(data);" class="text-center">
-               <div class="duration" style="width: {{get_width(data)}}%; margin-left: {{get_started(data)}}%">
-                  <div>{{data.duration.toFixed(2)}} ms</div>
-                </div>
-              </td>
-            </tr>
-          </table>
-
-        <div ng-hide="data.hide_children">
-          <div ng-repeat="data in data.children"
-               ng-include="'tree_item_renderer.html'">
-          </div>
-        </div>
-      </div>
-
-    </script>
-
-    <script>
-      angular.module("Application", ['ui.bootstrap']);
-
-      function ProfilerCtlr($scope, $modal) {
-
-        var convert_input = function(input, full_duration){
-          input.is_leaf = !input.children.length
-          input.input_line_prefix =  Array(input.level + 1).join("-")
-
-
-          input.hide_children = full_duration > 10 * input.duration ? true : false;
-
-          for (var i = 0; i < input.children.length; i++)
-            convert_input(input.children[i], full_duration);
-          return input;
+        $scope.tree[idx] = {parent: parent_idx,
+                            is_expandable: imp.children.length,
+                            is_expanded: (level < 4) && imp.duration > $scope.max_duration / 20}
+        for (var i in imp.children) {
+          append_imp(imp.children[i], this_idx, level + 1)
         }
+      }
+      append_imp(TraceData, 0, 0);
+      $scope.duration_bar_style = function(imp){
+        var margin_left = Math.ceil((imp.started_at / $scope.max_duration) * 100);
 
-        $scope.get_width = function(data){
-          var duration = (data.duration) * 100.0 / $scope.tree[0].duration;
-          return (duration >= 0.5) ? duration : 0.5;
+        /* Do not overflow right table border
+         * FIXME: This must be done better
+        */
+        if (margin_left > 75) {
+          margin_left = 75
         }
-
-        $scope.get_started = function(data) {
-          return data.started_at * 100.0 / $scope.tree[0].duration;
-        }
-
-        $scope.is_important = function(data) {
-          // we assume that point is important if import takes more then 10 ms
-          return data.duration > 10;
-        }
-
-        $scope.tree = [convert_input(TraceData, TraceData.duration)];
+        return {'margin-left': margin_left + "%",
+                width: Math.round((imp.duration / $scope.max_duration) * 100) + "%"};
       }
 
-    </script>
-  </head>
+      var has_collapsed_parent = function(idx) {
+        if (idx == 0) { return false }
+        var parent_idx = $scope.tree[idx].parent;
 
-  <body>
-    <div ng-controller="ProfilerCtlr">
-      <table>
+        if (!$scope.tree[parent_idx].is_expanded) {
+          return true
+        }
+        return has_collapsed_parent(parent_idx)
+      }
 
-      </table>
-      <table class="trace">
-        <tr class="bold text-left" style="border-bottom: solid 1px gray">
-          <td class="level">Level</td>
-          <td class="import_line">Import line</td>
-          <td>Duration</td>
-        </tr>
-      </table>
-      <div ng-repeat="data in tree" ng-include="'tree_item_renderer.html'"></div>
+      $scope.is_hidden = function(imp) {
+        return has_collapsed_parent(imp.index)
+      }
+
+      $scope.toggle_expand = function(imp) {
+        if ($scope.tree[imp.index].is_expandable) {
+          $scope.tree[imp.index].is_expanded = !$scope.tree[imp.index].is_expanded
+        }
+      }
+
+      var repeat_str = function(str, repeat){
+          var s = "";
+          for (var i=0; i<repeat; i++) { s += str };
+          return s
+      }
+      $scope.indent = function(str, num) {
+        if (num) {
+          return repeat_str(str, (str, num * 2) - 3)
+        }
+        return ''
+      }
+    }
+  </script>
+</head>
+
+<body ng-controller="ProfilerCtlr">
+  <div class="header">
+    <div class="content-wrap">
+      <a href="https://github.com/boris-42/profimp">ProfImp</a>&nbsp;
+      <span>imports profiling results</span>
     </div>
+  </div>
 
-  </body>
+  <div class="content-wrap">
+    <table>
 
+    </table>
+    <table class="trace">
+      <thead>
+        <tr>
+          <th>Import line</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-hide="is_hidden(imp)" ng-click="toggle_expand(imp)"
+            ng-repeat="imp in imports track by $index"
+            title="{{imp.module}} ({{imp.file}})">
+          <td>
+            <span>{{indent('&nbsp;', imp.level)}}</span>
+            <span ng-show="imp.level">&#9584;</span><span class="leaf" ng-hide="tree[imp.index].is_expandable">&#9472;&#9472;&nbsp;{{imp.level}}</span>
+            <span ng-show="tree[imp.index].is_expandable"
+                  n-g-click="tree[imp.index].is_expanded = !tree[imp.index].is_expanded">
+              <span ng-hide="tree[imp.index].is_expanded">&#9654;&nbsp;{{imp.level}}</span>
+              <span ng-show="tree[imp.index].is_expanded">&#9661;&nbsp;{{imp.level}}</span>
+            </span>
+            <span ng-show="imp.level">&#9472;&#9472;&#9472;&#9472;</span>
+            {{imp.input_line_prefix}} {{imp.import_line}}
+          </td>
+          <td class="duration">
+            <div ng-style="duration_bar_style(imp)">{{imp.duration.toFixed(2)}} ms</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
 </html>
