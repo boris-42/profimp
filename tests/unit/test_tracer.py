@@ -46,7 +46,8 @@ class TracePointTestCase(test.TestCase):
 
     @mock.patch("time.time", side_effect=[1, 2, 3, 4])
     def test_to_dict(self, mock_time):
-        pt = tracer.TracePoint("import_line", level=2)
+        pt = tracer.TracePoint("import_line", module="main",
+                               filepath="main.py", level=2)
         pt_child = tracer.TracePoint("import_child")
         pt.add_child(pt_child)
         pt.start()
@@ -59,6 +60,8 @@ class TracePointTestCase(test.TestCase):
             "finished_at": 3,
             "duration": 1000,
             "import_line": "import_child",
+            "module": None,
+            "filepath": None,
             "level": 3,
             "children": []
         }
@@ -68,6 +71,8 @@ class TracePointTestCase(test.TestCase):
             "finished_at": 4,
             "duration": 3000,
             "import_line": "import_line",
+            "module": "main",
+            "filepath": "main.py",
             "level": 2,
             "children": [expected_pt_child_dict]
         }
@@ -135,6 +140,7 @@ class TraceModuleTestCase(test.TestCase):
 
         self.assertEqual(1, len(tr_pt.children))
         self.assertEqual("import re", tr_pt.children[0].import_line)
+        self.assertIsNotNone(tr_pt.children[0].filepath)
 
     def test__traceit_from_import(self):
         tr_pt = tracer.init_stack()
