@@ -15,51 +15,16 @@
 # limitations under the License.
 
 # THIS FILE IS MANAGED BY THE GLOBAL REQUIREMENTS REPO - DO NOT EDIT
-import os
-
-import profimp
-
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+import setuptools
 
 # In python < 2.7.4, a lazy loading of package `pbr` will break
 # setuptools if some other modules registered functions in `atexit`.
 # solution from: http://bugs.python.org/issue15881#msg170215
+try:
+    import multiprocessing  # noqa
+except ImportError:
+    pass
 
-
-def read(fname):
-        return open(os.path.join(os.path.dirname(__file__), fname)).read()
-
-
-config = {
-        "name": "profimp",
-        "version": profimp.__version__,
-        "author": "Boris Pavlovic",
-        "author_email": "boris@pavlovic.me",
-        "url": "http://boris-42.me",
-        "description": "profimp - generates tree of imports profiles",
-        "long_description": read("README.rst"),
-
-        "classifiers": [
-            "Intended Audience :: Developers",
-            "Intended Audience :: Information Technology",
-            "License :: OSI Approved :: Apache Software License",
-            "Operating System :: POSIX :: Linux",
-            "Programming Language :: Python",
-            "Programming Language :: Python :: 2",
-            "Programming Language :: Python :: 2.6",
-            "Programming Language :: Python :: 2.7",
-            "Programming Language :: Python :: 3.4"
-        ],
-
-        "packages": ["profimp"],
-
-        "entry_points": {
-            "console_scripts": ["profimp=profimp.main:main"]
-        }
-}
-
-
-setup(**config)
+setuptools.setup(
+    setup_requires=['pbr'],
+    pbr=True)
