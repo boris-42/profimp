@@ -13,9 +13,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import json
-import os
-
 
 def _normalize(results, started_at=None):
     started_at = started_at or results["started_at"]
@@ -30,10 +27,13 @@ def _normalize(results, started_at=None):
 
 
 def to_json(results):
+    import json
     return json.dumps(_normalize(results.to_dict()), indent=2)
 
 
 def to_html(results):
+    import os
+
     template_path = os.path.join(
         os.path.dirname(__file__), "templates", "report.tpl")
 

@@ -13,8 +13,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-
-import contextlib
 import sys
 import time
 
@@ -80,12 +78,14 @@ def init_stack():
     return TRACE_STACK[0]
 
 
-@contextlib.contextmanager
-def patch_import():
-    old_import = builtins.__import__
-    builtins.__import__ = _traceit(builtins.__import__)
-    yield
-    builtins.__import__ = old_import
+class patch_import(object):
+
+    def __enter__(self):
+        self.old_import = builtins.__import__
+        builtins.__import__ = _traceit(builtins.__import__)
+
+    def __exit__(self, exc_type, exc_value, exc_traceback):
+        builtins.__import__ = self.old_import
 
 
 def _traceit(f):
