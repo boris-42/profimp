@@ -1,747 +1,1026 @@
 <!doctype html>
 <html ng-app="Application">
-
   <head>
-    <script> var TraceData = {
-  "level": 0,
-  "finished_at": 7.042169570922852,
-  "import_line": "root",
-  "duration": 7.042169570922852,
-  "started_at": 0.0,
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imports profiling results</title>
+  <style>
+    body { margin:0 0 50px; padding:0; font-size:14px; font-family:Helvetica,Arial,sans-serif }
+    table { border-collapse:collapse; border-spacing:0; width:100% }
+    thead th { text-align:left; padding:8px 4px; color:#000; border:2px solid #ddd; border-width:0 0 2px 0 }
+    tbody tr:hover { background:#d9edf7; cursor:pointer }
+    tbody td { text-align:left; solid #ddd; padding:3px 2px; color:#333; font-size:12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; white-space: nowrap; font-family:monospace }
+    .header { text-align:left; background:#333; font-size:18px; padding:13px 0; margin-bottom:20px; color:#fff; background-image:linear-gradient(to bottom, #444 0px, #222 100%) }
+    .header a, .header a:visited, .header a:focus { color:#999; text-decoration: none }
+    .leaf { width:17px; border:none; padding:0; background:none; border:none; text-align:center; }
+    tbody td span { color: gray; }
+    td.import_line { max-width: 400px; overflow: hidden; padding-right: 20px}
+    td.duration { width:40%; padding:2px 0; overflow: visible; color: gray; }
+    td.duration div { text-align:center; padding:3px 0; line-height:12px; background:#c6f3dd; border-radius:2px; overflow: visible; white-space: nowrap; }
+    .content-wrap {margin:0 auto; padding:0 5px}
+    @media only screen and (min-width: 320px)  { .content-wrap { width:900px  } .content-main { width:600px } }
+    @media only screen and (min-width: 900px)  { .content-wrap { width:880px  } .content-main { width:590px } }
+    @media only screen and (min-width: 1000px) { .content-wrap { width:980px  } .content-main { width:690px } }
+    @media only screen and (min-width: 1100px) { .content-wrap { width:1080px } .content-main { width:790px } }
+    @media only screen and (min-width: 1200px) { .content-wrap { width:1180px } .content-main { width:890px } }
+  </style>
+
+  <script>var TraceData = {
+  "filepath": null, 
+  "level": 0, 
+  "duration": 11.906147003173828, 
+  "finished_at": 11.906147003173828, 
+  "started_at": 0.0, 
   "children": [
     {
-      "level": 1,
-      "finished_at": 7.039070129394531,
-      "import_line": "import multiprocessing",
-      "duration": 7.0209503173828125,
-      "started_at": 0.01811981201171875,
+      "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/site-packages/profimp/main.pyc", 
+      "level": 1, 
+      "duration": 11.854887008666992, 
+      "finished_at": 11.904001235961914, 
+      "started_at": 0.049114227294921875, 
       "children": [
         {
-          "level": 2,
-          "finished_at": 0.2989768981933594,
-          "import_line": "import os",
-          "duration": 0.02288818359375,
-          "started_at": 0.2760887145996094,
-          "children": []
-        },
+          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/__init__.pyc", 
+          "level": 2, 
+          "duration": 0.027894973754882812, 
+          "finished_at": 0.6160736083984375, 
+          "started_at": 0.5881786346435547, 
+          "children": [], 
+          "module": "multiprocessing", 
+          "import_line": "import os"
+        }, 
         {
-          "level": 2,
-          "finished_at": 0.3151893615722656,
-          "import_line": "import sys",
-          "duration": 0.013113021850585938,
-          "started_at": 0.3020763397216797,
-          "children": []
-        },
+          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/__init__.pyc", 
+          "level": 2, 
+          "duration": 0.015020370483398438, 
+          "finished_at": 0.6351470947265625, 
+          "started_at": 0.6201267242431641, 
+          "children": [], 
+          "module": "multiprocessing", 
+          "import_line": "import sys"
+        }, 
         {
-          "level": 2,
-          "finished_at": 0.5919933319091797,
-          "import_line": "from multiprocessing.process import Process, current_process, active_children",
-          "duration": 0.2739429473876953,
-          "started_at": 0.3180503845214844,
+          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/__init__.pyc", 
+          "level": 2, 
+          "duration": 1.4379024505615234, 
+          "finished_at": 2.0799636840820312, 
+          "started_at": 0.6420612335205078, 
           "children": [
             {
-              "level": 3,
-              "finished_at": 0.42700767517089844,
-              "import_line": "import os",
-              "duration": 0.003814697265625,
-              "started_at": 0.42319297790527344,
-              "children": []
-            },
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/process.pyc", 
+              "level": 3, 
+              "duration": 0.010967254638671875, 
+              "finished_at": 1.50299072265625, 
+              "started_at": 1.4920234680175781, 
+              "children": [], 
+              "module": "multiprocessing.process", 
+              "import_line": "import os"
+            }, 
             {
-              "level": 3,
-              "finished_at": 0.431060791015625,
-              "import_line": "import sys",
-              "duration": 0.0019073486328125,
-              "started_at": 0.4291534423828125,
-              "children": []
-            },
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/process.pyc", 
+              "level": 3, 
+              "duration": 0.0040531158447265625, 
+              "finished_at": 1.5120506286621094, 
+              "started_at": 1.5079975128173828, 
+              "children": [], 
+              "module": "multiprocessing.process", 
+              "import_line": "import sys"
+            }, 
             {
-              "level": 3,
-              "finished_at": 0.44608116149902344,
-              "import_line": "import signal",
-              "duration": 0.014066696166992188,
-              "started_at": 0.43201446533203125,
-              "children": []
-            },
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/process.pyc", 
+              "level": 3, 
+              "duration": 0.026226043701171875, 
+              "finished_at": 1.5451908111572266, 
+              "started_at": 1.5189647674560547, 
+              "children": [], 
+              "module": "multiprocessing.process", 
+              "import_line": "import signal"
+            }, 
             {
-              "level": 3,
-              "finished_at": 0.4591941833496094,
-              "import_line": "import itertools",
-              "duration": 0.011205673217773438,
-              "started_at": 0.44798851013183594,
-              "children": []
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/process.pyc", 
+              "level": 3, 
+              "duration": 0.36406517028808594, 
+              "finished_at": 1.9130706787109375, 
+              "started_at": 1.5490055084228516, 
+              "children": [], 
+              "module": "multiprocessing.process", 
+              "import_line": "import itertools"
             }
-          ]
-        },
+          ], 
+          "module": "multiprocessing", 
+          "import_line": "from multiprocessing.process import Process, current_process, active_children"
+        }, 
         {
-          "level": 2,
-          "finished_at": 6.321191787719727,
-          "import_line": "from multiprocessing.util import SUBDEBUG, SUBWARNING",
-          "duration": 5.724191665649414,
-          "started_at": 0.5970001220703125,
+          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/__init__.pyc", 
+          "level": 2, 
+          "duration": 8.090019226074219, 
+          "finished_at": 10.17904281616211, 
+          "started_at": 2.0890235900878906, 
           "children": [
             {
-              "level": 3,
-              "finished_at": 0.7050037384033203,
-              "import_line": "import itertools",
-              "duration": 0.003814697265625,
-              "started_at": 0.7011890411376953,
-              "children": []
-            },
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/util.pyc", 
+              "level": 3, 
+              "duration": 0.010013580322265625, 
+              "finished_at": 3.010988235473633, 
+              "started_at": 3.000974655151367, 
+              "children": [], 
+              "module": "multiprocessing.util", 
+              "import_line": "import itertools"
+            }, 
             {
-              "level": 3,
-              "finished_at": 1.0421276092529297,
-              "import_line": "import weakref",
-              "duration": 0.3349781036376953,
-              "started_at": 0.7071495056152344,
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/util.pyc", 
+              "level": 3, 
+              "duration": 0.5211830139160156, 
+              "finished_at": 3.5371780395507812, 
+              "started_at": 3.0159950256347656, 
               "children": [
                 {
-                  "level": 4,
-                  "finished_at": 0.9901523590087891,
-                  "import_line": "import UserDict",
-                  "duration": 0.0030994415283203125,
-                  "started_at": 0.9870529174804688,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/weakref.pyc", 
+                  "level": 4, 
+                  "duration": 0.0050067901611328125, 
+                  "finished_at": 3.4720897674560547, 
+                  "started_at": 3.467082977294922, 
+                  "children": [], 
+                  "module": "weakref", 
+                  "import_line": "import UserDict"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 0.9961128234863281,
-                  "import_line": "from _weakref import getweakrefcount, getweakrefs, ref, proxy, CallableProxyType, ProxyType, ReferenceType",
-                  "duration": 0.0030994415283203125,
-                  "started_at": 0.9930133819580078,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/weakref.pyc", 
+                  "level": 4, 
+                  "duration": 0.0040531158447265625, 
+                  "finished_at": 3.481149673461914, 
+                  "started_at": 3.4770965576171875, 
+                  "children": [], 
+                  "module": "weakref", 
+                  "import_line": "from _weakref import getweakrefcount, getweakrefs, ref, proxy, CallableProxyType, ProxyType, ReferenceType"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 1.001119613647461,
-                  "import_line": "from _weakrefset import WeakSet",
-                  "duration": 0.0019073486328125,
-                  "started_at": 0.9992122650146484,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/weakref.pyc", 
+                  "level": 4, 
+                  "duration": 0.0030994415283203125, 
+                  "finished_at": 3.4880638122558594, 
+                  "started_at": 3.484964370727539, 
+                  "children": [], 
+                  "module": "weakref", 
+                  "import_line": "from _weakrefset import WeakSet"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 1.0051727294921875,
-                  "import_line": "from exceptions import ReferenceError",
-                  "duration": 0.0021457672119140625,
-                  "started_at": 1.0030269622802734,
-                  "children": []
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/weakref.pyc", 
+                  "level": 4, 
+                  "duration": 0.0019073486328125, 
+                  "finished_at": 3.4949779510498047, 
+                  "started_at": 3.493070602416992, 
+                  "children": [], 
+                  "module": "weakref", 
+                  "import_line": "from exceptions import ReferenceError"
                 }
-              ]
-            },
+              ], 
+              "module": "multiprocessing.util", 
+              "import_line": "import weakref"
+            }, 
             {
-              "level": 3,
-              "finished_at": 1.190185546875,
-              "import_line": "import atexit",
-              "duration": 0.14519691467285156,
-              "started_at": 1.0449886322021484,
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/util.pyc", 
+              "level": 3, 
+              "duration": 0.1418590545654297, 
+              "finished_at": 3.6840438842773438, 
+              "started_at": 3.542184829711914, 
               "children": [
                 {
-                  "level": 4,
-                  "finished_at": 1.1811256408691406,
-                  "import_line": "import sys",
-                  "duration": 0.0030994415283203125,
-                  "started_at": 1.1780261993408203,
-                  "children": []
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/atexit.pyc", 
+                  "level": 4, 
+                  "duration": 0.0040531158447265625, 
+                  "finished_at": 3.6771297454833984, 
+                  "started_at": 3.673076629638672, 
+                  "children": [], 
+                  "module": "atexit", 
+                  "import_line": "import sys"
                 }
-              ]
-            },
+              ], 
+              "module": "multiprocessing.util", 
+              "import_line": "import atexit"
+            }, 
             {
-              "level": 3,
-              "finished_at": 4.03904914855957,
-              "import_line": "import threading",
-              "duration": 2.846956253051758,
-              "started_at": 1.1920928955078125,
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/util.pyc", 
+              "level": 3, 
+              "duration": 3.446817398071289, 
+              "finished_at": 7.133960723876953, 
+              "started_at": 3.687143325805664, 
               "children": [
                 {
-                  "level": 4,
-                  "finished_at": 1.6679763793945312,
-                  "import_line": "import sys",
-                  "duration": 0.00476837158203125,
-                  "started_at": 1.6632080078125,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.pyc", 
+                  "level": 4, 
+                  "duration": 0.0040531158447265625, 
+                  "finished_at": 4.083156585693359, 
+                  "started_at": 4.079103469848633, 
+                  "children": [], 
+                  "module": "threading", 
+                  "import_line": "import sys"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 1.722097396850586,
-                  "import_line": "import thread",
-                  "duration": 0.051021575927734375,
-                  "started_at": 1.6710758209228516,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.pyc", 
+                  "level": 4, 
+                  "duration": 0.04506111145019531, 
+                  "finished_at": 4.1351318359375, 
+                  "started_at": 4.090070724487305, 
+                  "children": [], 
+                  "module": "threading", 
+                  "import_line": "import thread"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 1.7271041870117188,
-                  "import_line": "import warnings",
-                  "duration": 0.0019073486328125,
-                  "started_at": 1.7251968383789062,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.pyc", 
+                  "level": 4, 
+                  "duration": 0.00286102294921875, 
+                  "finished_at": 4.142045974731445, 
+                  "started_at": 4.139184951782227, 
+                  "children": [], 
+                  "module": "threading", 
+                  "import_line": "import warnings"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 2.8340816497802734,
-                  "import_line": "from collections import deque",
-                  "duration": 1.1038780212402344,
-                  "started_at": 1.730203628540039,
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.pyc", 
+                  "level": 4, 
+                  "duration": 1.4729499816894531, 
+                  "finished_at": 5.620002746582031, 
+                  "started_at": 4.147052764892578, 
                   "children": [
                     {
-                      "level": 5,
-                      "finished_at": 2.001047134399414,
-                      "import_line": "from _abcoll import *",
-                      "duration": 0.014066696166992188,
-                      "started_at": 1.9869804382324219,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.006198883056640625, 
+                      "finished_at": 4.433155059814453, 
+                      "started_at": 4.4269561767578125, 
+                      "children": [], 
+                      "module": "collections", 
+                      "import_line": "from _abcoll import *"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 2.0101070404052734,
-                      "import_line": "import _abcoll",
-                      "duration": 0.0019073486328125,
-                      "started_at": 2.008199691772461,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.0021457672119140625, 
+                      "finished_at": 4.443168640136719, 
+                      "started_at": 4.441022872924805, 
+                      "children": [], 
+                      "module": "collections", 
+                      "import_line": "import _abcoll"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 2.214193344116211,
-                      "import_line": "from _collections import deque, defaultdict",
-                      "duration": 0.2009868621826172,
-                      "started_at": 2.0132064819335938,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.2110004425048828, 
+                      "finished_at": 4.661083221435547, 
+                      "started_at": 4.450082778930664, 
+                      "children": [], 
+                      "module": "collections", 
+                      "import_line": "from _collections import deque, defaultdict"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 2.2230148315429688,
-                      "import_line": "from operator import itemgetter, eq",
-                      "duration": 0.003814697265625,
-                      "started_at": 2.2192001342773438,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.2269744873046875, 
+                      "finished_at": 4.8961639404296875, 
+                      "started_at": 4.669189453125, 
+                      "children": [], 
+                      "module": "collections", 
+                      "import_line": "from operator import itemgetter, eq"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 2.402067184448242,
-                      "import_line": "from keyword import iskeyword",
-                      "duration": 0.17690658569335938,
-                      "started_at": 2.225160598754883,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.21791458129882812, 
+                      "finished_at": 5.120992660522461, 
+                      "started_at": 4.903078079223633, 
+                      "children": [], 
+                      "module": "collections", 
+                      "import_line": "from keyword import iskeyword"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 2.4080276489257812,
-                      "import_line": "import sys",
-                      "duration": 0.0019073486328125,
-                      "started_at": 2.4061203002929688,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.0030994415283203125, 
+                      "finished_at": 5.13005256652832, 
+                      "started_at": 5.126953125, 
+                      "children": [], 
+                      "module": "collections", 
+                      "import_line": "import sys"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 2.7680397033691406,
-                      "import_line": "import heapq",
-                      "duration": 0.3578662872314453,
-                      "started_at": 2.4101734161376953,
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.40602684020996094, 
+                      "finished_at": 5.539178848266602, 
+                      "started_at": 5.133152008056641, 
                       "children": [
                         {
-                          "level": 6,
-                          "finished_at": 2.5980472564697266,
-                          "import_line": "from itertools import islice, count, imap, izip, tee, chain",
-                          "duration": 0.0040531158447265625,
-                          "started_at": 2.593994140625,
-                          "children": []
-                        },
+                          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/heapq.pyc", 
+                          "level": 6, 
+                          "duration": 0.0050067901611328125, 
+                          "finished_at": 5.370140075683594, 
+                          "started_at": 5.365133285522461, 
+                          "children": [], 
+                          "module": "heapq", 
+                          "import_line": "from itertools import islice, count, imap, izip, tee, chain"
+                        }, 
                         {
-                          "level": 6,
-                          "finished_at": 2.6030540466308594,
-                          "import_line": "from operator import itemgetter",
-                          "duration": 0.0019073486328125,
-                          "started_at": 2.601146697998047,
-                          "children": []
-                        },
+                          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/heapq.pyc", 
+                          "level": 6, 
+                          "duration": 0.0019073486328125, 
+                          "finished_at": 5.377054214477539, 
+                          "started_at": 5.375146865844727, 
+                          "children": [], 
+                          "module": "heapq", 
+                          "import_line": "from operator import itemgetter"
+                        }, 
                         {
-                          "level": 6,
-                          "finished_at": 2.7570724487304688,
-                          "import_line": "from _heapq import *",
-                          "duration": 0.1499652862548828,
-                          "started_at": 2.607107162475586,
-                          "children": []
+                          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/heapq.pyc", 
+                          "level": 6, 
+                          "duration": 0.14495849609375, 
+                          "finished_at": 5.527019500732422, 
+                          "started_at": 5.382061004638672, 
+                          "children": [], 
+                          "module": "heapq", 
+                          "import_line": "from _heapq import *"
                         }
-                      ]
-                    },
+                      ], 
+                      "module": "collections", 
+                      "import_line": "import heapq"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 2.7751922607421875,
-                      "import_line": "from itertools import repeat, chain, starmap",
-                      "duration": 0.0030994415283203125,
-                      "started_at": 2.772092819213867,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.00286102294921875, 
+                      "finished_at": 5.548000335693359, 
+                      "started_at": 5.545139312744141, 
+                      "children": [], 
+                      "module": "collections", 
+                      "import_line": "from itertools import repeat, chain, starmap"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 2.7801990509033203,
-                      "import_line": "from itertools import imap",
-                      "duration": 0.0030994415283203125,
-                      "started_at": 2.777099609375,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.010967254638671875, 
+                      "finished_at": 5.563020706176758, 
+                      "started_at": 5.552053451538086, 
+                      "children": [], 
+                      "module": "collections", 
+                      "import_line": "from itertools import imap"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 2.783060073852539,
-                      "import_line": "from thread import get_ident",
-                      "duration": 0.00095367431640625,
-                      "started_at": 2.782106399536133,
-                      "children": []
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.pyc", 
+                      "level": 5, 
+                      "duration": 0.0019073486328125, 
+                      "finished_at": 5.568027496337891, 
+                      "started_at": 5.566120147705078, 
+                      "children": [], 
+                      "module": "collections", 
+                      "import_line": "from thread import get_ident"
                     }
-                  ]
-                },
+                  ], 
+                  "module": "threading", 
+                  "import_line": "from collections import deque"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 2.8400421142578125,
-                  "import_line": "from time import time, sleep",
-                  "duration": 0.00286102294921875,
-                  "started_at": 2.8371810913085938,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.pyc", 
+                  "level": 4, 
+                  "duration": 0.0021457672119140625, 
+                  "finished_at": 5.627155303955078, 
+                  "started_at": 5.625009536743164, 
+                  "children": [], 
+                  "module": "threading", 
+                  "import_line": "from time import time, sleep"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 3.100156784057617,
-                  "import_line": "from traceback import format_exc",
-                  "duration": 0.2579689025878906,
-                  "started_at": 2.8421878814697266,
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.pyc", 
+                  "level": 4, 
+                  "duration": 0.26297569274902344, 
+                  "finished_at": 5.89299201965332, 
+                  "started_at": 5.630016326904297, 
                   "children": [
                     {
-                      "level": 5,
-                      "finished_at": 3.0870437622070312,
-                      "import_line": "import linecache",
-                      "duration": 0.0040531158447265625,
-                      "started_at": 3.0829906463623047,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/traceback.pyc", 
+                      "level": 5, 
+                      "duration": 0.00286102294921875, 
+                      "finished_at": 5.872011184692383, 
+                      "started_at": 5.869150161743164, 
+                      "children": [], 
+                      "module": "traceback", 
+                      "import_line": "import linecache"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 3.091096878051758,
-                      "import_line": "import sys",
-                      "duration": 0.0019073486328125,
-                      "started_at": 3.0891895294189453,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/traceback.pyc", 
+                      "level": 5, 
+                      "duration": 0.00095367431640625, 
+                      "finished_at": 5.877017974853516, 
+                      "started_at": 5.876064300537109, 
+                      "children": [], 
+                      "module": "traceback", 
+                      "import_line": "import sys"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 3.094196319580078,
-                      "import_line": "import types",
-                      "duration": 0.0011920928955078125,
-                      "started_at": 3.0930042266845703,
-                      "children": []
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/traceback.pyc", 
+                      "level": 5, 
+                      "duration": 0.0021457672119140625, 
+                      "finished_at": 5.8841705322265625, 
+                      "started_at": 5.882024765014648, 
+                      "children": [], 
+                      "module": "traceback", 
+                      "import_line": "import types"
                     }
-                  ]
-                },
+                  ], 
+                  "module": "threading", 
+                  "import_line": "from traceback import format_exc"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 3.1070709228515625,
-                  "import_line": "import re",
-                  "duration": 0.00095367431640625,
-                  "started_at": 3.1061172485351562,
-                  "children": []
-                },
+                  "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/warnings.pyc", 
+                  "level": 4, 
+                  "duration": 0.8769035339355469, 
+                  "finished_at": 6.776094436645508, 
+                  "started_at": 5.899190902709961, 
+                  "children": [
+                    {
+                      "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/re.pyc", 
+                      "level": 5, 
+                      "duration": 0.00286102294921875, 
+                      "finished_at": 6.006956100463867, 
+                      "started_at": 6.004095077514648, 
+                      "children": [], 
+                      "module": "re", 
+                      "import_line": "import sys"
+                    }, 
+                    {
+                      "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/re.pyc", 
+                      "level": 5, 
+                      "duration": 0.698089599609375, 
+                      "finished_at": 6.7081451416015625, 
+                      "started_at": 6.0100555419921875, 
+                      "children": [
+                        {
+                          "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/sre_compile.pyc", 
+                          "level": 6, 
+                          "duration": 0.03218650817871094, 
+                          "finished_at": 6.157159805297852, 
+                          "started_at": 6.124973297119141, 
+                          "children": [], 
+                          "module": "sre_compile", 
+                          "import_line": "import _sre"
+                        }, 
+                        {
+                          "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/sre_compile.pyc", 
+                          "level": 6, 
+                          "duration": 0.0021457672119140625, 
+                          "finished_at": 6.163120269775391, 
+                          "started_at": 6.160974502563477, 
+                          "children": [], 
+                          "module": "sre_compile", 
+                          "import_line": "import sys"
+                        }, 
+                        {
+                          "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/sre_compile.pyc", 
+                          "level": 6, 
+                          "duration": 0.49805641174316406, 
+                          "finished_at": 6.667137145996094, 
+                          "started_at": 6.16908073425293, 
+                          "children": [
+                            {
+                              "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/sre_parse.pyc", 
+                              "level": 7, 
+                              "duration": 0.006198883056640625, 
+                              "finished_at": 6.414175033569336, 
+                              "started_at": 6.407976150512695, 
+                              "children": [], 
+                              "module": "sre_parse", 
+                              "import_line": "import sys"
+                            }, 
+                            {
+                              "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/sre_parse.pyc", 
+                              "level": 7, 
+                              "duration": 0.19311904907226562, 
+                              "finished_at": 6.615161895751953, 
+                              "started_at": 6.4220428466796875, 
+                              "children": [
+                                {
+                                  "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/sre_constants.pyc", 
+                                  "level": 8, 
+                                  "duration": 0.0059604644775390625, 
+                                  "finished_at": 6.566047668457031, 
+                                  "started_at": 6.560087203979492, 
+                                  "children": [], 
+                                  "module": "sre_constants", 
+                                  "import_line": "from _sre import MAXREPEAT"
+                                }
+                              ], 
+                              "module": "sre_parse", 
+                              "import_line": "from sre_constants import *"
+                            }
+                          ], 
+                          "module": "sre_compile", 
+                          "import_line": "import sre_parse"
+                        }, 
+                        {
+                          "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/sre_compile.pyc", 
+                          "level": 6, 
+                          "duration": 0.00286102294921875, 
+                          "finished_at": 6.675958633422852, 
+                          "started_at": 6.673097610473633, 
+                          "children": [], 
+                          "module": "sre_compile", 
+                          "import_line": "from sre_constants import *"
+                        }
+                      ], 
+                      "module": "re", 
+                      "import_line": "import sre_compile"
+                    }, 
+                    {
+                      "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/re.pyc", 
+                      "level": 5, 
+                      "duration": 0.0021457672119140625, 
+                      "finished_at": 6.718158721923828, 
+                      "started_at": 6.716012954711914, 
+                      "children": [], 
+                      "module": "re", 
+                      "import_line": "import sre_parse"
+                    }, 
+                    {
+                      "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/re.pyc", 
+                      "level": 5, 
+                      "duration": 0.0030994415283203125, 
+                      "finished_at": 6.765127182006836, 
+                      "started_at": 6.762027740478516, 
+                      "children": [], 
+                      "module": "re", 
+                      "import_line": "import copy_reg"
+                    }
+                  ], 
+                  "module": "warnings", 
+                  "import_line": "import re"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 3.988981246948242,
-                  "import_line": "from thread import stack_size",
-                  "duration": 0.0050067901611328125,
-                  "started_at": 3.9839744567871094,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.pyc", 
+                  "level": 4, 
+                  "duration": 0.007152557373046875, 
+                  "finished_at": 7.05718994140625, 
+                  "started_at": 7.050037384033203, 
+                  "children": [], 
+                  "module": "threading", 
+                  "import_line": "from thread import stack_size"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 4.029989242553711,
-                  "import_line": "from thread import _local",
-                  "duration": 0.003814697265625,
-                  "started_at": 4.026174545288086,
-                  "children": []
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.pyc", 
+                  "level": 4, 
+                  "duration": 0.0050067901611328125, 
+                  "finished_at": 7.122039794921875, 
+                  "started_at": 7.117033004760742, 
+                  "children": [], 
+                  "module": "threading", 
+                  "import_line": "from thread import _local"
                 }
-              ]
-            },
+              ], 
+              "module": "multiprocessing.util", 
+              "import_line": "import threading"
+            }, 
             {
-              "level": 3,
-              "finished_at": 6.255149841308594,
-              "import_line": "from subprocess import _args_from_interpreter_flags",
-              "duration": 2.2139549255371094,
-              "started_at": 4.041194915771484,
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/util.pyc", 
+              "level": 3, 
+              "duration": 2.9730796813964844, 
+              "finished_at": 10.11204719543457, 
+              "started_at": 7.138967514038086, 
               "children": [
                 {
-                  "level": 4,
-                  "finished_at": 4.397153854370117,
-                  "import_line": "import sys",
-                  "duration": 0.0030994415283203125,
-                  "started_at": 4.394054412841797,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 0.0050067901611328125, 
+                  "finished_at": 7.580995559692383, 
+                  "started_at": 7.57598876953125, 
+                  "children": [], 
+                  "module": "subprocess", 
+                  "import_line": "import sys"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 4.405021667480469,
-                  "import_line": "import os",
-                  "duration": 0.0019073486328125,
-                  "started_at": 4.403114318847656,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 0.00286102294921875, 
+                  "finished_at": 7.591009140014648, 
+                  "started_at": 7.58814811706543, 
+                  "children": [], 
+                  "module": "subprocess", 
+                  "import_line": "import os"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 4.408121109008789,
-                  "import_line": "import types",
-                  "duration": 0.0021457672119140625,
-                  "started_at": 4.405975341796875,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 0.0030994415283203125, 
+                  "finished_at": 7.598161697387695, 
+                  "started_at": 7.595062255859375, 
+                  "children": [], 
+                  "module": "subprocess", 
+                  "import_line": "import types"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 4.410028457641602,
-                  "import_line": "import traceback",
-                  "duration": 0.00095367431640625,
-                  "started_at": 4.409074783325195,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 0.0030994415283203125, 
+                  "finished_at": 7.608175277709961, 
+                  "started_at": 7.605075836181641, 
+                  "children": [], 
+                  "module": "subprocess", 
+                  "import_line": "import traceback"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 4.424095153808594,
-                  "import_line": "import gc",
-                  "duration": 0.011920928955078125,
-                  "started_at": 4.412174224853516,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 0.018835067749023438, 
+                  "finished_at": 7.63702392578125, 
+                  "started_at": 7.618188858032227, 
+                  "children": [], 
+                  "module": "subprocess", 
+                  "import_line": "import gc"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 4.427194595336914,
-                  "import_line": "import signal",
-                  "duration": 0.0011920928955078125,
-                  "started_at": 4.426002502441406,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 0.0030994415283203125, 
+                  "finished_at": 7.646083831787109, 
+                  "started_at": 7.642984390258789, 
+                  "children": [], 
+                  "module": "subprocess", 
+                  "import_line": "import signal"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 4.430055618286133,
-                  "import_line": "import errno",
-                  "duration": 0.00095367431640625,
-                  "started_at": 4.429101943969727,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 0.0019073486328125, 
+                  "finished_at": 7.652997970581055, 
+                  "started_at": 7.651090621948242, 
+                  "children": [], 
+                  "module": "subprocess", 
+                  "import_line": "import errno"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 4.665136337280273,
-                  "import_line": "import select",
-                  "duration": 0.21600723266601562,
-                  "started_at": 4.449129104614258,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 0.2868175506591797, 
+                  "finished_at": 7.9669952392578125, 
+                  "started_at": 7.680177688598633, 
+                  "children": [], 
+                  "module": "subprocess", 
+                  "import_line": "import select"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 4.8351287841796875,
-                  "import_line": "import fcntl",
-                  "duration": 0.164031982421875,
-                  "started_at": 4.6710968017578125,
-                  "children": []
-                },
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 0.1590251922607422, 
+                  "finished_at": 8.134126663208008, 
+                  "started_at": 7.975101470947266, 
+                  "children": [], 
+                  "module": "subprocess", 
+                  "import_line": "import fcntl"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 6.208181381225586,
-                  "import_line": "import pickle",
-                  "duration": 1.3689994812011719,
-                  "started_at": 4.839181900024414,
+                  "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.pyc", 
+                  "level": 4, 
+                  "duration": 1.931905746459961, 
+                  "finished_at": 10.071992874145508, 
+                  "started_at": 8.140087127685547, 
                   "children": [
                     {
-                      "level": 5,
-                      "finished_at": 5.390167236328125,
-                      "import_line": "from types import *",
-                      "duration": 0.0059604644775390625,
-                      "started_at": 5.384206771850586,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.0059604644775390625, 
+                      "finished_at": 8.645057678222656, 
+                      "started_at": 8.639097213745117, 
+                      "children": [], 
+                      "module": "pickle", 
+                      "import_line": "from types import *"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 5.40614128112793,
-                      "import_line": "from copy_reg import dispatch_table",
-                      "duration": 0.0030994415283203125,
-                      "started_at": 5.403041839599609,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.00286102294921875, 
+                      "finished_at": 8.661985397338867, 
+                      "started_at": 8.659124374389648, 
+                      "children": [], 
+                      "module": "pickle", 
+                      "import_line": "from copy_reg import dispatch_table"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 5.410194396972656,
-                      "import_line": "from copy_reg import _extension_registry, _inverted_registry, _extension_cache",
-                      "duration": 0.0011920928955078125,
-                      "started_at": 5.409002304077148,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.0019073486328125, 
+                      "finished_at": 8.67009162902832, 
+                      "started_at": 8.668184280395508, 
+                      "children": [], 
+                      "module": "pickle", 
+                      "import_line": "from copy_reg import _extension_registry, _inverted_registry, _extension_cache"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 5.424976348876953,
-                      "import_line": "import marshal",
-                      "duration": 0.011920928955078125,
-                      "started_at": 5.413055419921875,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.0069141387939453125, 
+                      "finished_at": 8.680105209350586, 
+                      "started_at": 8.67319107055664, 
+                      "children": [], 
+                      "module": "pickle", 
+                      "import_line": "import marshal"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 5.42902946472168,
-                      "import_line": "import sys",
-                      "duration": 0.0019073486328125,
-                      "started_at": 5.427122116088867,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.0019073486328125, 
+                      "finished_at": 8.687019348144531, 
+                      "started_at": 8.685111999511719, 
+                      "children": [], 
+                      "module": "pickle", 
+                      "import_line": "import sys"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 5.43212890625,
-                      "import_line": "import struct",
-                      "duration": 0.00095367431640625,
-                      "started_at": 5.431175231933594,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.4420280456542969, 
+                      "finished_at": 9.132146835327148, 
+                      "started_at": 8.690118789672852, 
+                      "children": [
+                        {
+                          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/struct.pyc", 
+                          "level": 6, 
+                          "duration": 0.20599365234375, 
+                          "finished_at": 9.107112884521484, 
+                          "started_at": 8.901119232177734, 
+                          "children": [], 
+                          "module": "struct", 
+                          "import_line": "from _struct import *"
+                        }, 
+                        {
+                          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/struct.pyc", 
+                          "level": 6, 
+                          "duration": 0.0040531158447265625, 
+                          "finished_at": 9.122133255004883, 
+                          "started_at": 9.118080139160156, 
+                          "children": [], 
+                          "module": "struct", 
+                          "import_line": "from _struct import _clearcache"
+                        }, 
+                        {
+                          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/struct.pyc", 
+                          "level": 6, 
+                          "duration": 0.0021457672119140625, 
+                          "finished_at": 9.127140045166016, 
+                          "started_at": 9.124994277954102, 
+                          "children": [], 
+                          "module": "struct", 
+                          "import_line": "from _struct import __doc__"
+                        }
+                      ], 
+                      "module": "pickle", 
+                      "import_line": "import struct"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 5.434989929199219,
-                      "import_line": "import re",
-                      "duration": 0.00095367431640625,
-                      "started_at": 5.4340362548828125,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.0019073486328125, 
+                      "finished_at": 9.139060974121094, 
+                      "started_at": 9.137153625488281, 
+                      "children": [], 
+                      "module": "pickle", 
+                      "import_line": "import re"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 5.616188049316406,
-                      "import_line": "from org.python.core import PyStringMap",
-                      "duration": 0.11515617370605469,
-                      "started_at": 5.501031875610352,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.10800361633300781, 
+                      "finished_at": 9.310007095336914, 
+                      "started_at": 9.202003479003906, 
+                      "children": [], 
+                      "module": "pickle", 
+                      "import_line": "from org.python.core import PyStringMap"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 5.978107452392578,
-                      "import_line": "import binascii",
-                      "duration": 0.0030994415283203125,
-                      "started_at": 5.975008010864258,
-                      "children": []
-                    },
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.19502639770507812, 
+                      "finished_at": 9.879112243652344, 
+                      "started_at": 9.684085845947266, 
+                      "children": [], 
+                      "module": "pickle", 
+                      "import_line": "import binascii"
+                    }, 
                     {
-                      "level": 5,
-                      "finished_at": 6.196022033691406,
-                      "import_line": "from cStringIO import StringIO",
-                      "duration": 0.2148151397705078,
-                      "started_at": 5.981206893920898,
-                      "children": []
+                      "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pickle.pyc", 
+                      "level": 5, 
+                      "duration": 0.1709461212158203, 
+                      "finished_at": 10.06007194519043, 
+                      "started_at": 9.88912582397461, 
+                      "children": [], 
+                      "module": "pickle", 
+                      "import_line": "from cStringIO import StringIO"
                     }
-                  ]
+                  ], 
+                  "module": "subprocess", 
+                  "import_line": "import pickle"
                 }
-              ]
-            },
+              ], 
+              "module": "multiprocessing.util", 
+              "import_line": "from subprocess import _args_from_interpreter_flags"
+            }, 
             {
-              "level": 3,
-              "finished_at": 6.264209747314453,
-              "import_line": "from multiprocessing.process import current_process, active_children",
-              "duration": 0.0040531158447265625,
-              "started_at": 6.260156631469727,
-              "children": []
+              "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/util.pyc", 
+              "level": 3, 
+              "duration": 0.0050067901611328125, 
+              "finished_at": 10.123968124389648, 
+              "started_at": 10.118961334228516, 
+              "children": [], 
+              "module": "multiprocessing.util", 
+              "import_line": "from multiprocessing.process import current_process, active_children"
             }
-          ]
-        },
+          ], 
+          "module": "multiprocessing", 
+          "import_line": "from multiprocessing.util import SUBDEBUG, SUBWARNING"
+        }, 
         {
-          "level": 2,
-          "finished_at": 7.026195526123047,
-          "import_line": "import _multiprocessing",
-          "duration": 0.6520748138427734,
-          "started_at": 6.374120712280273,
+          "filepath": "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/multiprocessing/__init__.pyc", 
+          "level": 2, 
+          "duration": 1.6231536865234375, 
+          "finished_at": 11.88516616821289, 
+          "started_at": 10.262012481689453, 
           "children": [
             {
-              "level": 3,
-              "finished_at": 6.9980621337890625,
-              "import_line": "from cPickle import __doc__",
-              "duration": 0.4210472106933594,
-              "started_at": 6.577014923095703,
+              "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/site-packages/profimp/tracer.pyc", 
+              "level": 3, 
+              "duration": 1.0988712310791016, 
+              "finished_at": 11.85297966003418, 
+              "started_at": 10.754108428955078, 
               "children": [
                 {
-                  "level": 4,
-                  "finished_at": 6.791114807128906,
-                  "import_line": "from copy_reg import __doc__",
-                  "duration": 0.0050067901611328125,
-                  "started_at": 6.786108016967773,
-                  "children": []
-                },
+                  "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/site-packages/profimp/tracer.pyc", 
+                  "level": 4, 
+                  "duration": 0.0069141387939453125, 
+                  "finished_at": 11.636018753051758, 
+                  "started_at": 11.629104614257812, 
+                  "children": [], 
+                  "module": "profimp.tracer", 
+                  "import_line": "from copy_reg import __doc__"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 6.798028945922852,
-                  "import_line": "from __builtin__ import __doc__",
-                  "duration": 0.00286102294921875,
-                  "started_at": 6.795167922973633,
-                  "children": []
-                },
+                  "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/site-packages/profimp/tracer.pyc", 
+                  "level": 4, 
+                  "duration": 0.00286102294921875, 
+                  "finished_at": 11.64698600769043, 
+                  "started_at": 11.644124984741211, 
+                  "children": [], 
+                  "module": "profimp.tracer", 
+                  "import_line": "from __builtin__ import __doc__"
+                }, 
                 {
-                  "level": 4,
-                  "finished_at": 6.987094879150391,
-                  "import_line": "from cStringIO import __doc__",
-                  "duration": 0.0050067901611328125,
-                  "started_at": 6.982088088989258,
-                  "children": []
+                  "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/site-packages/profimp/tracer.pyc", 
+                  "level": 4, 
+                  "duration": 0.0040531158447265625, 
+                  "finished_at": 11.839151382446289, 
+                  "started_at": 11.835098266601562, 
+                  "children": [], 
+                  "module": "profimp.tracer", 
+                  "import_line": "from cStringIO import __doc__"
                 }
-              ]
-            },
+              ], 
+              "module": "profimp.tracer", 
+              "import_line": "from cPickle import __doc__"
+            }, 
             {
-              "level": 3,
-              "finished_at": 7.004976272583008,
-              "import_line": "from multiprocessing import __doc__",
-              "duration": 0.00286102294921875,
-              "started_at": 7.002115249633789,
-              "children": []
+              "filepath": "/Users/boris/Documents/os/my/profimp/samples/vvv/lib/python2.7/site-packages/profimp/tracer.pyc", 
+              "level": 3, 
+              "duration": 0.0040531158447265625, 
+              "finished_at": 11.862039566040039, 
+              "started_at": 11.857986450195312, 
+              "children": [], 
+              "module": "profimp.tracer", 
+              "import_line": "from multiprocessing import __doc__"
             }
-          ]
+          ], 
+          "module": "multiprocessing", 
+          "import_line": "import _multiprocessing"
         }
-      ]
+      ], 
+      "module": "profimp.main", 
+      "import_line": "import multiprocessing"
     }
-  ]
-} </script>
+  ], 
+  "module": null, 
+  "import_line": "exec(import multiprocessing)"
+}</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+  <script>
+    angular.module("Application", []);
 
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    function ProfilerCtlr($scope) {
+      var idx = 0;
+      $scope.max_duration = TraceData["duration"];
+      $scope.tree = {0: {parent: 0, is_expandable: true, is_expanded: true}};
+      $scope.imports = [];
+      var append_imp = function(imp, parent_idx, level){
+        idx++;
+        var this_idx = idx;
+        $scope.imports.push({level: level,
+                      index: idx,
+                      module: imp.module,
+                      file: imp.filepath,
+                      import_line: imp.import_line,
+                      duration: imp.duration,
+                      started_at: imp.started_at})
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
-
-    <style>
-      .trace {
-        min-width: 900px;
-      }
-
-      .trace tr:hover {
-        background-color: #D9EDF7!important;
-      }
-
-      .trace tr td {
-        white-space: nowrap;
-        padding: 2px;
-        border-right: 1px solid #eee;
-      }
-
-      .trace tr td.level{
-        width: 100px;
-      }
-
-      .import_line{
-        width: 450px;
-        max-width: 450px;
-        overflow: scroll;
-      }
-
-      .import_line span{
-        font-size: 10px;
-      }
-
-
-      .trace .level {
-        width: 10%;
-        font-weight: bold;
-      }
-
-      .bold {
-        font-weight: bold;
-      }
-
-      div.duration {
-        width: 25px;
-        margin: 0px;
-        padding: 0px;
-        background-color: #C6F3DD;
-        border-radius: 4px;
-        font-size: 10px;
-
-      }
-
-      div.duration div{
-        padding-top: 4px;
-        padding-bottom: 4px;
-        text-align: center;
-      }
-    </style>
-
-    <script type="text/ng-template"  id="tree_item_renderer.html">
-        <div>
-          <table class="trace cursor_pointer_on_hover">
-            <tr>
-              <td class="level" style="padding-left:{{data.level * 5}}px;">
-                <button type="button"
-                        class="btn btn-default btn-xs"
-                        ng-disabled="data.is_leaf"
-                        ng-click="data.hide_children=!data.hide_children">
-                  <span class="glyphicon glyphicon-{{ (data.is_leaf) ? 'minus' : ((data.hide_children) ? 'plus': 'minus')}}"></span>
-                  {{data.level || 0}}
-                </button>
-              </td>
-              <td class="{{ is_important(data) ? 'bold' : ''}} import_line" >
-                <span>{{data.input_line_prefix}} {{data.import_line}}</span>
-              </td>
-              <td ng-click="display(data);" class="text-center">
-               <div class="duration" style="width: {{get_width(data)}}%; margin-left: {{get_started(data)}}%">
-                  <div>{{data.duration.toFixed(2)}} ms</div>
-                </div>
-              </td>
-            </tr>
-          </table>
-
-        <div ng-hide="data.hide_children">
-          <div ng-repeat="data in data.children"
-               ng-include="'tree_item_renderer.html'">
-          </div>
-        </div>
-      </div>
-
-    </script>
-
-    <script>
-      angular.module("Application", ['ui.bootstrap']);
-
-      function ProfilerCtlr($scope, $modal) {
-
-        var convert_input = function(input, full_duration){
-          input.is_leaf = !input.children.length
-          input.input_line_prefix =  Array(input.level + 1).join("-")
-
-
-          input.hide_children = full_duration > 10 * input.duration ? true : false;
-
-          for (var i = 0; i < input.children.length; i++)
-            convert_input(input.children[i], full_duration);
-          return input;
+        $scope.tree[idx] = {parent: parent_idx,
+                            is_expandable: imp.children.length,
+                            is_expanded: (level < 4) && imp.duration > $scope.max_duration / 20}
+        for (var i in imp.children) {
+          append_imp(imp.children[i], this_idx, level + 1)
         }
+      }
+      append_imp(TraceData, 0, 0);
+      $scope.duration_bar_style = function(imp){
+        var margin_left = Math.ceil((imp.started_at / $scope.max_duration) * 100);
 
-        $scope.get_width = function(data){
-          var duration = (data.duration) * 100.0 / $scope.tree[0].duration;
-          return (duration >= 0.5) ? duration : 0.5;
+        /* Do not overflow right table border
+         * FIXME: This must be done better
+        */
+        if (margin_left > 75) {
+          margin_left = 75
         }
-
-        $scope.get_started = function(data) {
-          return data.started_at * 100.0 / $scope.tree[0].duration;
-        }
-
-        $scope.is_important = function(data) {
-          // we assume that point is important if import takes more then 10 ms
-          return data.duration > 10;
-        }
-
-        $scope.tree = [convert_input(TraceData, TraceData.duration)];
+        return {'margin-left': margin_left + "%",
+                width: Math.round((imp.duration / $scope.max_duration) * 100) + "%"};
       }
 
-    </script>
-  </head>
+      var has_collapsed_parent = function(idx) {
+        if (idx == 0) { return false }
+        var parent_idx = $scope.tree[idx].parent;
 
-  <body>
-    <div ng-controller="ProfilerCtlr">
-      <table>
+        if (!$scope.tree[parent_idx].is_expanded) {
+          return true
+        }
+        return has_collapsed_parent(parent_idx)
+      }
 
-      </table>
-      <table class="trace">
-        <tr class="bold text-left" style="border-bottom: solid 1px gray">
-          <td class="level">Level</td>
-          <td class="import_line">Import line</td>
-          <td>Duration</td>
-        </tr>
-      </table>
-      <div ng-repeat="data in tree" ng-include="'tree_item_renderer.html'"></div>
+      $scope.is_hidden = function(imp) {
+        return has_collapsed_parent(imp.index)
+      }
+
+      $scope.toggle_expand = function(imp) {
+        if ($scope.tree[imp.index].is_expandable) {
+          $scope.tree[imp.index].is_expanded = !$scope.tree[imp.index].is_expanded
+        }
+      }
+
+      var repeat_str = function(str, repeat){
+          var s = "";
+          for (var i=0; i<repeat; i++) { s += str };
+          return s
+      }
+      $scope.indent = function(str, num) {
+        if (num) {
+          return repeat_str(str, (str, num * 2) - 3)
+        }
+        return ''
+      }
+    }
+  </script>
+</head>
+
+<body ng-controller="ProfilerCtlr">
+  <div class="header">
+    <div class="content-wrap">
+      <a href="https://github.com/boris-42/profimp">ProfImp</a>&nbsp;
+      <span>imports profiling results</span>
     </div>
+  </div>
 
-  </body>
+  <div class="content-wrap">
+    <table>
 
+    </table>
+    <table class="trace">
+      <thead>
+        <tr>
+          <th>Import line</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-hide="is_hidden(imp)" ng-click="toggle_expand(imp)"
+            ng-repeat="imp in imports track by $index"
+            title="{{imp.module}} ({{imp.file}})">
+          <td class="import_line">
+            <span>{{indent('&nbsp;', imp.level)}}</span>
+            <span ng-show="imp.level">&#9584;</span><span class="leaf" ng-hide="tree[imp.index].is_expandable">&#9472;&#9472;&nbsp;{{imp.level}}</span>
+            <span ng-show="tree[imp.index].is_expandable"
+                  n-g-click="tree[imp.index].is_expanded = !tree[imp.index].is_expanded">
+              <span ng-hide="tree[imp.index].is_expanded">&#9654;&nbsp;{{imp.level}}</span>
+              <span ng-show="tree[imp.index].is_expanded">&#9661;&nbsp;{{imp.level}}</span>
+            </span>
+            <span ng-show="imp.level">&#9472;&#9472;&#9472;&#9472;</span>
+            {{imp.input_line_prefix}} {{imp.import_line}}
+          </td>
+          <td class="duration">
+            <div ng-style="duration_bar_style(imp)">{{imp.duration.toFixed(2)}} ms</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
 </html>
