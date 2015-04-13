@@ -2,6 +2,21 @@
 Profimp - python imports tracer
 ===============================
 
+.. image:: https://img.shields.io/coveralls/boris-42/profimp.svg
+    :target: https://coveralls.io/r/boris-42/profimp
+
+.. image:: https://api.travis-ci.org/boris-42/profimp.svg?branch=master
+    :target: https://travis-ci.org/boris-42/profimp
+
+.. image:: https://pypip.in/version/profimp/badge.svg
+    :target: https://pypi.python.org/pypi/profimp
+
+.. image:: https://pypip.in/py_versions/profimp/badge.svg
+    :target: https://pypi.python.org/pypi/profimp/
+
+.. image:: https://pypip.in/download/profimp/badge.svg
+    :target: https://pypi.python.org/pypi/profimp/
+
 
 Profimp allows you to trace imports of your code.
 
