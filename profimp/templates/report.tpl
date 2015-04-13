@@ -14,6 +14,7 @@
     .header a, .header a:visited, .header a:focus { color:#999; text-decoration: none }
     .leaf { width:17px; border:none; padding:0; background:none; border:none; text-align:center; }
     tbody td span { color: gray; }
+    td.import_line { max-width: 400px; overflow: hidden; padding-right: 20px}
     td.duration { width:40%; padding:2px 0; overflow: visible; color: gray; }
     td.duration div { text-align:center; padding:3px 0; line-height:12px; background:#c6f3dd; border-radius:2px; overflow: visible; white-space: nowrap; }
     .content-wrap {margin:0 auto; padding:0 5px}
@@ -124,7 +125,7 @@
         <tr ng-hide="is_hidden(imp)" ng-click="toggle_expand(imp)"
             ng-repeat="imp in imports track by $index"
             title="{{imp.module}} ({{imp.file}})">
-          <td>
+          <td class="import_line">
             <span>{{indent('&nbsp;', imp.level)}}</span>
             <span ng-show="imp.level">&#9584;</span><span class="leaf" ng-hide="tree[imp.index].is_expandable">&#9472;&#9472;&nbsp;{{imp.level}}</span>
             <span ng-show="tree[imp.index].is_expandable"
