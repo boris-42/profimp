@@ -31,8 +31,8 @@ Installation
 Installation of profimp is super easy:
 
 .. code-block::
-
-   sudo pip install profimp
+   # Note you might need to use virtualenv
+   pip install profimp
 
 or
 
