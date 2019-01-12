@@ -31,6 +31,7 @@ Installation
 Installation of profimp is super easy:
 
 .. code-block::
+  
    # Note you might need to use virtualenv
    pip install profimp
 
@@ -39,7 +40,7 @@ or
 .. code-block::
 
     git clone https://github.com/boris-42/profimp && cd profimp
-    sudo python setup.py install
+    python setup.py install
 
 
 Usage
