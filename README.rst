@@ -8,14 +8,8 @@ Profimp - python imports tracer
 .. image:: https://api.travis-ci.org/boris-42/profimp.svg?branch=master
     :target: https://travis-ci.org/boris-42/profimp
 
-.. image:: https://pypip.in/version/profimp/badge.svg
+.. image:: https://img.shields.io/pypi/v/profimp.svg
     :target: https://pypi.python.org/pypi/profimp
-
-.. image:: https://pypip.in/py_versions/profimp/badge.svg
-    :target: https://pypi.python.org/pypi/profimp/
-
-.. image:: https://pypip.in/download/profimp/badge.svg
-    :target: https://pypi.python.org/pypi/profimp/
 
 
 Profimp allows you to trace imports of your code.
@@ -30,14 +24,14 @@ Installation
 
 Installation of profimp is super easy:
 
-.. code-block::
+.. code-block:: bash
   
    # Note you might need to use virtualenv
    pip install profimp
 
 or
 
-.. code-block::
+.. code-block:: bash
 
     git clone https://github.com/boris-42/profimp && cd profimp
     python setup.py install
@@ -48,13 +42,13 @@ Usage
 
 Syntax:
 
-.. code-block::
+.. code-block:: bash
 
     profimp [import_module_line] [--html]
 
 Samples:
 
-.. code-block::
+.. code-block:: bash
 
     profimp "import collections"
 
@@ -68,7 +62,7 @@ Pretty HTML reports
 
 if you run prpfimp with --html key you will get pretty html output
 
-.. code-block::
+.. code-block:: bash
 
   profimp "import collections"
 
@@ -83,7 +77,7 @@ Raw JSON Results
 
 In output you will see something like:
 
-.. code-block::
+.. code-block:: json
 
     profimp "import collections"
 
