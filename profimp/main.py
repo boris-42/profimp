@@ -36,7 +36,7 @@ HELP_MESSAGE = """
 
         profimp "from somemoudle import something"
 
-        prpfimp --html "import multiprocessing"
+        profimp --html "import multiprocessing"
 
 """
 
